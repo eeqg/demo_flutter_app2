@@ -6,21 +6,26 @@ import '../constant/constant.dart';
 import '../utils/screen_utils.dart';
 import 'container_page.dart';
 
-class SplashWidget extends StatefulWidget {
-  const SplashWidget({super.key});
+class SplashPage extends StatefulWidget {
+  const SplashPage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _SplashWidgetState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashWidgetState extends State<SplashWidget> {
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     print('-----splash');
     print('-----screenW: ${ScreenUtils.screenW()}');
     print('-----screenH: ${ScreenUtils.screenH()}');
     return Stack(
-      children: [
+      children: <Widget>[
         const Offstage(
           child: ContainerPage(),
         ),
@@ -40,7 +45,8 @@ class _SplashWidgetState extends State<SplashWidget> {
                         //radius: (ScreenUtils.screenW() / 3),
                         radius: 100,
                         backgroundColor: Colors.white,
-                        backgroundImage: AssetImage("${Constant.ASSETS_IMG}home.png"),
+                        backgroundImage:
+                            AssetImage("${Constant.ASSETS_IMG}home.png"),
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: 20.0),

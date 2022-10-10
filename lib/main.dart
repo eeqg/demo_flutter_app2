@@ -1,8 +1,22 @@
+import 'dart:io';
+
+import 'package:demo_flutter_app2/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_flutter_app2/pages/container_page.dart';
+import 'package:flutter/services.dart';
+
+import 'pages/splash_page2.dart';
 
 void main() {
   runApp(const MyApp());
+
+  if (Platform.isAndroid) {
+    //设置Android头部的导航栏透明
+    SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,//导航栏透明
+        statusBarIconBrightness: Brightness.dark);//light:黑色图标 dark：白色图标
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -25,15 +39,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const ContainerPage(),
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     title: const Text('Welcome to Flutter'),
-      //   ),
-      //   body: const Center(
-      //     child: SplashWidget(),
-      //   ),
-      // ),
+      home: const SplashPage2(),
+      routes: <String, WidgetBuilder>{ // 路由
+        '/index': (BuildContext context) => const ContainerPage()
+      },
     );
   }
 }

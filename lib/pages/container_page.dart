@@ -45,31 +45,23 @@ class _ContainerPageState extends State<ContainerPage> {
   void initState() {
     super.initState();
     print('initState _ContainerPageState');
-    if(pages == null){
-      pages = [
-        MinePage(),
-        HomePage(),
-        HomePage(),
-        HomePage(),
-        MinePage()
-      ];
+    if (pages == null) {
+      pages = [HomePage(), HomePage(), HomePage(), HomePage(), MinePage()];
     }
-    if(itemList == null){
+    if (itemList == null) {
       itemList = itemNames
           .map((item) => BottomNavigationBarItem(
-          icon: Image.asset(
-            item.normalIcon,
-            width: 30.0,
-            height: 30.0,
-          ),
-          label: item.name,
-          activeIcon:
-          Image.asset(item.activeIcon, width: 30.0, height: 30.0)))
+              icon: Image.asset(
+                item.normalIcon,
+                width: 30.0,
+                height: 30.0,
+              ),
+              label: item.name,
+              activeIcon:
+                  Image.asset(item.activeIcon, width: 30.0, height: 30.0)))
           .toList();
     }
-
   }
-
 
   int _selectIndex = 0;
 
@@ -79,11 +71,10 @@ class _ContainerPageState extends State<ContainerPage> {
       offstage: _selectIndex != index,
       child: TickerMode(
         enabled: _selectIndex == index,
-        child: pages!.first,
+        child: pages![index],
       ),
     );
   }
-
 
   @override
   void didUpdateWidget(ContainerPage oldWidget) {
@@ -109,8 +100,14 @@ class _ContainerPageState extends State<ContainerPage> {
 //    this.resizeToAvoidBottomPadding = true,
 //    this.primary = true,
 //    })
-    print('build _ContainerPageState');
+    print('build _ContainerPageState---$_selectIndex');
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          itemNames[_selectIndex].name,
+          style: const TextStyle(color: Colors.brown, fontSize: 18),
+        ),
+      ),
       body: Stack(
         children: [
           _getPagesWidget(0),

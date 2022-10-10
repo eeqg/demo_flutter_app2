@@ -103,6 +103,8 @@ class _ContainerPageState extends State<ContainerPage> {
     print('build _ContainerPageState---$_selectIndex');
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 5,
         title: Text(
           itemNames[_selectIndex].name,
           style: const TextStyle(color: Colors.brown, fontSize: 18),

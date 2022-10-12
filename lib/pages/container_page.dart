@@ -1,3 +1,5 @@
+import 'package:demo_flutter_app2/pages/FindPage.dart';
+import 'package:demo_flutter_app2/pages/MarketPage.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/constant.dart';
@@ -46,7 +48,7 @@ class _ContainerPageState extends State<ContainerPage> {
     super.initState();
     print('initState _ContainerPageState');
     if (pages == null) {
-      pages = [HomePage(), HomePage(), HomePage(), HomePage(), MinePage()];
+      pages = [HomePage(), FindPage(), HomePage(), MarketPage(), MinePage()];
     }
     if (itemList == null) {
       itemList = itemNames
@@ -84,32 +86,8 @@ class _ContainerPageState extends State<ContainerPage> {
 
   @override
   Widget build(BuildContext context) {
-//    Scaffold({
-//    Key key,
-//    this.appBar,
-//    this.body,
-//    this.floatingActionButton,
-//    this.floatingActionButtonLocation,
-//    this.floatingActionButtonAnimator,
-//    this.persistentFooterButtons,
-//    this.drawer,
-//    this.endDrawer,
-//    this.bottomNavigationBar,
-//    this.bottomSheet,
-//    this.backgroundColor,
-//    this.resizeToAvoidBottomPadding = true,
-//    this.primary = true,
-//    })
     print('build _ContainerPageState---$_selectIndex');
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 5,
-        title: Text(
-          itemNames[_selectIndex].name,
-          style: const TextStyle(color: Colors.brown, fontSize: 18),
-        ),
-      ),
       body: Stack(
         children: [
           _getPagesWidget(0),
@@ -119,11 +97,6 @@ class _ContainerPageState extends State<ContainerPage> {
           _getPagesWidget(4),
         ],
       ),
-//        List<BottomNavigationBarItem>
-//        @required this.icon,
-//    this.title,
-//    Widget activeIcon,
-//    this.backgroundColor,
       backgroundColor: const Color.fromARGB(255, 248, 248, 248),
       bottomNavigationBar: BottomNavigationBar(
         items: itemList!,

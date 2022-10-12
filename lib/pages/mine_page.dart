@@ -1,13 +1,22 @@
+import 'package:demo_flutter_app2/utils/Common.dart';
 import 'package:flutter/material.dart';
 
-class MinePage extends StatelessWidget {
+class MinePage extends StatefulWidget {
   const MinePage({super.key});
 
   @override
+  State<StatefulWidget> createState() {
+    return _MinePageSate();
+  }
+}
+
+class _MinePageSate extends State<MinePage>{
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
+      appBar: Common.commonAppBar("我的"),
+      body: const SafeArea(
         child: Padding(
           padding: EdgeInsets.only(top: 0),
           child: CustomScrollView(

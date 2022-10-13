@@ -1,5 +1,5 @@
-import 'package:demo_flutter_app2/pages/FindPage.dart';
-import 'package:demo_flutter_app2/pages/MarketPage.dart';
+import 'package:demo_flutter_app2/pages/find_page.dart';
+import 'package:demo_flutter_app2/pages/market_page.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/constant.dart';

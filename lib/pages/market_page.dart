@@ -1,3 +1,4 @@
+import 'package:demo_flutter_app2/pages/listview_page.dart';
 import 'package:demo_flutter_app2/utils/Common.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +18,14 @@ class _MarketState extends State<MarketPage> {
     super.initState();
 
     dataList.add({"title": "title1", "subtitle": "subTitle"});
-    dataList.add({"title": "title2", "subtitle": "subTitlesubTitlesubTitlesubTitlesubTitlesubTitlesubTitlebTitlesubTitlesubbTitlesubTitlesubsubTitlesubTitlesubTitlesubTitlesubTitlesubTitlesubTitlebTitlesubTitlesubbTitlesubTitlesub"});
+    dataList.add({"title": "title2", "subtitle": "subTitlesubTitlesubTitlesubTitlesubTitlesubTitlesubTitlebTitlesububTitleesubTitleitlesubTitlesubbTitlesubTitlesub"});
     dataList.add({"title": "title3", "subtitle": ""});
-    dataList.add({"title": "title4", "subtitle": ""});
-    dataList.add({"title": "title5", "subtitle": ""});
+    dataList.add({"title": "ListView", "subtitle": "ListView + container + car"});
+    dataList.add({"title": "动画", "subtitle": "Animations"});
+    dataList.add({"title": "title6", "subtitle": "subTitle"});
+    dataList.add({"title": "title6", "subtitle": "subTitle"});
+    dataList.add({"title": "异步加网络载数据", "subtitle": "异步加载数据并将之展示在 ListView 内"});
+    dataList.add({"title": "title6", "subtitle": "subTitle"});
     dataList.add({"title": "title6", "subtitle": "subTitle"});
     dataList.add({"title": "title7", "subtitle": "subTitle"});
     dataList.add({"title": "title8", "subtitle": "subTitle"});
@@ -45,9 +50,18 @@ class _MarketState extends State<MarketPage> {
                   style: const TextStyle(fontSize: 20, color: Colors.black)),
               subtitle: Text("${dataInfo["subtitle"]}",
                   style: const TextStyle(fontSize: 14, color: Colors.grey)),
-              onTap: () {},
+              onTap: () { _navigatePage(index); },
             );
           }),
     );
+  }
+
+  void _navigatePage(int index){
+    var page;
+    switch(index){
+      case 3: page = ListViewPage();
+    }
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) => page));
   }
 }

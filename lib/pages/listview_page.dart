@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../bean/mixed_bean.dart';
+import '../utils/Common.dart';
 
 class ListViewPage extends StatelessWidget {
   ListViewPage({super.key});
@@ -63,23 +64,7 @@ class ListViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CupertinoColors.secondarySystemBackground,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: const Icon(
-              Icons.arrow_back_ios_rounded,
-              color: Colors.black,
-            )),
-        elevation: 2,
-        centerTitle: true,
-        title: const Text(
-          "ListView demo",
-          style: TextStyle(color: Colors.black, fontSize: 20),
-        ),
-      ),
+      appBar: Common.appBar(context, "ListView Sample"),
       body: ListView.builder(
           itemCount: dataList.length,
           itemBuilder: (context, index) {

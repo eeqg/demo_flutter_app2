@@ -1,4 +1,5 @@
 import 'package:demo_flutter_app2/pages/listview_page.dart';
+import 'package:demo_flutter_app2/pages/network_page.dart';
 import 'package:demo_flutter_app2/utils/Common.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,8 @@ class _MarketState extends State<MarketPage> {
   void _navigatePage(int index){
     var page;
     switch(index){
-      case 3: page = ListViewPage();
+      case 3: page = ListViewPage(); break;
+      case 7: page = NetworkPage(); break;
     }
 
     Navigator.push(context, MaterialPageRoute(builder: (context) => page));
